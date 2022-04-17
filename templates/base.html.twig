@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}損益計算{% endblock %}</title>
+    </head>
+<body>
+<script>
+function getPrice(){
+        
+    var usdd=document.getElementById('usd').value;
+    var quoA1=parseFloat(document.getElementById('quo1').value);
+    var quoA2=parseFloat(document.getElementById('quo2').value);
+    var quoA3=parseFloat(document.getElementById('quo3').value);
+    var quoA4=parseFloat(document.getElementById('quo4').value);
+    var quoA5=parseFloat(document.getElementById('quo5').value);
+    var priceA1=document.getElementById('price1').value;
+    var priceA2=document.getElementById('price2').value;
+    var priceA3=document.getElementById('price3').value;
+    var priceA4=document.getElementById('price4').value;
+    var priceA5=document.getElementById('price5').value;
+
+    var num11=(usdd-priceA1)*quoA1*10000;
+    var num1=parseInt(num11);
+    document.getElementById('pro1').innerHTML=num1;
+
+    var num22=(usdd-priceA2)*quoA2*10000;
+    var num2=parseInt(num22);
+    document.getElementById('pro2').innerHTML=num2;
+
+    var num33=(usdd-priceA3)*quoA3*10000;
+    var num3=parseInt(num33);
+    document.getElementById('pro3').innerHTML=num3;
+
+    var num44=(usdd-priceA4)*quoA4*10000;
+    var num4=parseInt(num44);
+    document.getElementById('pro4').innerHTML=num4;
+
+    var num55=(usdd-priceA5)*quoA5*10000;
+    var num5=parseInt(num55);
+    document.getElementById('pro5').innerHTML=num5;
+
+var sum_lot1=(quoA1+quoA2+quoA3+quoA4+quoA5);
+var sum_pro1=num1+num2+num3+num4+num5;
+document.getElementById('sum_lot11').innerHTML=sum_lot1;
+document.getElementById('sum_price11').innerHTML=sum_pro1;
+
+var usdd=document.getElementById('usd').value;
+var quoA6=parseFloat(document.getElementById('quo6').value);
+var quoA7=parseFloat(document.getElementById('quo7').value);
+var quoA8=parseFloat(document.getElementById('quo8').value);
+var quoA9=parseFloat(document.getElementById('quo9').value);
+var quoA10=parseFloat(document.getElementById('quo10').value);
+var priceA6=document.getElementById('price6').value;
+var priceA7=document.getElementById('price7').value;
+var priceA8=document.getElementById('price8').value;
+var priceA9=document.getElementById('price9').value;
+var priceA10=document.getElementById('price10').value;
+
+
+var num66=(priceA6-usdd)*quoA6*10000;
+var num6=parseInt(num66);
+document.getElementById('pro6').innerHTML=num6;
+
+var num77=(priceA7-usdd)*quoA7*10000;
+var num7=parseInt(num77);
+document.getElementById('pro7').innerHTML=num7;
+
+var num88=(priceA8-usdd)*quoA8*10000;
+var num8=parseInt(num88);
+document.getElementById('pro8').innerHTML=num8;
+
+var num99=(priceA9-usdd)*quoA9*10000;
+var num9=parseInt(num99);
+document.getElementById('pro9').innerHTML=num9;
+
+var num100=(priceA10-usdd)*quoA10*10000;
+var num10=parseInt(num100);
+document.getElementById('pro10').innerHTML=num10;
+
+var sum_lot2=quoA6+quoA7+quoA8+quoA9+quoA10;
+var sum_pro2=num6+num7+num8+num9+num10;
+document.getElementById('sum_lot22').innerHTML=sum_lot2;
+document.getElementById('sum_price22').innerHTML=sum_pro2;
+
+var sum_lot_all11=sum_lot1+sum_lot2;
+var sum_lot_all1=parseFloat(sum_lot_all11);
+
+var sum_price_all11=sum_pro1+sum_pro2;
+var sum_price_all1=parseFloat(sum_price_all11)
+document.getElementById('sum_lot_all').innerHTML=sum_lot_all1;
+document.getElementById('sum_price_all').innerHTML=sum_price_all1;
+
+}
+</script>
+    <h1>FX損益計算表(1lot=10,000通貨)</h1>
+    <p>ドル円(買)<input type="number" step="0.001" id="usd"></p>
+    <!--<P>レバレッジ<input type="number" name="reba">倍</p>-->
+    <input type="button" value="check" onclick="getPrice();">
+    <class="main1">
+    <ul>
+        <li>買</li>
+        <li>数量<input type="number" step="0.1" id="quo1" value="0">lot　　約定価格<input type="number" id="price1" step="0.01"> 損益<span id="pro1" step="0"></span>円</li>
+        <li>数量<input type="number" step="0.1" id="quo2" value="0">lot　　約定価格<input type="number" id="price2" step="0.01"> 損益<span id="pro2" step="0"></span>円</li>
+        <li>数量<input type="number" step="0.1" id="quo3" value="0">lot　　約定価格<input type="number" id="price3" step="0.01"> 損益<span id="pro3" step="0"></span>円</li>
+        <li>数量<input type="number" step="0.1" id="quo4" value="0">lot　　約定価格<input type="number" id="price4" step="0.01"> 損益<span id="pro4" step="0"></span>円</li>
+        <li>数量<input type="number" step="0.1" id="quo5" value="0">lot　　約定価格<input type="number" id="price5" step="0.01"> 損益<span id="pro5" step="0"></span>円</li>
+        <li>合計<span id="sum_lot11" step="0.1"></span>lot     合計損益<span id="sum_price11" step="0"></span>円   </li>
+    </ul>
+</class>
+
+<class="main2">
+    <ul>
+        <li>売</li>
+        <li>数量<input type="number" step="0.1" id="quo6" value="0">lot　　約定価格<input type="number" id="price6" step="0.01"> 損益<span id="pro6" step="0"></span>円</li>
+        <li>数量<input type="number" step="0.1" id="quo7" value="0">lot　　約定価格<input type="number" id="price7" step="0.01"> 損益<span id="pro7" step="0"></span>円</li>
+        <li>数量<input type="number" step="0.1" id="quo8" value="0">lot　　約定価格<input type="number" id="price8" step="0.01"> 損益<span id="pro8" step="0"></span>円</li>
+        <li>数量<input type="number" step="0.1" id="quo9" value="0">lot　　約定価格<input type="number" id="price9" step="0.01"> 損益<span id="pro9" step="0"></span>円</li>
+        <li>数量<input type="number" step="0.1" id="quo10" value="0">lot　　約定価格<input type="number" id="price10" step="0.01"> 損益<span id="pro10" step="0"></span>円</li>
+        <li>合計<span id="sum_lot22" step="0.1"></span>lot     合計損益<span id="sum_price22" step="0"></span>円  </li>
+        
+    </ul>
+</class>
+<ul>
+<li>総合計<span id="sum_lot_all" step="0.1"></span>lot  　　　   合計損益<span id="sum_price_all" step="0"></span>円 </li>
+</ul>    
+      
+        
+
+    </body>
+</html>
